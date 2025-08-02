@@ -1,5 +1,5 @@
-from get_quality import get_quality
-from get_emoji import get_emoji
+from .get_quality import get_quality
+from .get_emoji import get_emoji
 
 def get_summary(product):
     show_summary = str(input("Show summary: (Y/N)"))

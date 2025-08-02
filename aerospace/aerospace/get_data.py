@@ -1,4 +1,4 @@
-from product_type import product_type
+from .product_type import product_type
 
 def get_data(products, data):
     # A list that processes the data variable and extract the necessary data we need
