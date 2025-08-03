@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Dictionary Display</title>
+    <style>
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            width: 50vw;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 12px;
+            margin-bottom: 10px;
+            background-color: #f0f0f0;
+            box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1);
+            font-family: roboto;
+            text-align: left;
+            font-weight: bold;
+            font-size: 15px;
+            display: flex;
+            justify-content: space-between;
+        }
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .container {
+            display: flex;
+            height: 100%;
+        }
+
+        .left {
+            width: 60%;
+            background-color: #f0f0f0;
+            overflow-y: auto; /* This side scrolls */
+            padding: 20px;
+        }
+
+        .right {
+            width: 40%;
+            background-color: #ddd;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="left">
+            <h1>Sales Office</h1>
+            <ul>
+                {% for product in products %}
+                    <li>ID: {{ product.id }}
+                        <p style="color:brown; text-align:left; font-size:15px">{{product.kind}}</p>
+                        <p style="color:black; text-align:left; font-size:15px">Search Cost: {{product.searchCost}}<br>Quantity: {{product.amount}}</p>
+                        <p style="color:black; text-align:left; font-size:15px">Selling Price: {{ product.sell_price }}<br>Quality: {{ product.qualityBonus }}</p>
+                        <p style="color:black; text-align:left; font-size:15px">Cost: {{product.purchased_price}}<br>Total Terms: {{product.total_terms}}</p>
+                        <p style="color:black; text-align:left; font-size:15px">Revenue: {{product.revenue}}<br>Gross Profit: {{product.gross_profit}}</p> 
+                        <p style="color:black; text-align:left; font-size:15px">Net Income: {{product.net_income}}</p>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="right">
+            <p>Total Net Profit: {{total_net_income}}</p>
+            <p>Total Gross Profit: {{total_gross_income}}</p>
+        </div>
+    </div>
+
+</body>
+</html>
