@@ -1,12 +1,13 @@
 from .product_type import product_type
 from .data_storage import read_data
 
-def get_data(products, data):
+def get_data(data):
     # A list that processes the data variable and extract the necessary data we need
     # Stores it inside a list as a dictionary
     # Sample JSON: {'id': 25428075, 'datetime': '2024-10-17T10:06:40.030368+00:00', 'searchCost': 39235,
     # 'resources': [{'amount': 3, 'price': 94142, 'kind': 96}, {'amount': 4, 'price': 42872, 'kind': 97}], 'qualityBonus': 2.273160085131345, 'speedBonus': 0},...}
     extracted_data = []
+   
     #total = 0
     for item in data:
         if "resources" in item:
@@ -20,7 +21,7 @@ def get_data(products, data):
                 gross_profit = revenue - (purchased_price * resource["amount"])
                 net_income = gross_profit - item["searchCost"]
                 #total += net_income
-
+ 
                 extracted_data.append({
                     "id": item["id"],
                     "searchCost": item["searchCost"],
