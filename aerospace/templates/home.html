@@ -2,14 +2,29 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Dictionary Display</title>
+    <title>SimCo Aerospace Industry</title>
     <style>
         ul {
             list-style: none;
             padding: 0;
         }
-
         li {
+            width: 40vw;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 12px;
+            margin-bottom: 10px;
+            background-color: #f0f0f0;
+            box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1);
+            font-family: roboto;
+            text-align: left;
+            font-weight: bold;
+            font-size: 15px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .left-li {
             width: 50vw;
             border: 1px solid #ccc;
             border-radius: 8px;
@@ -24,6 +39,28 @@
             display: flex;
             justify-content: space-between;
         }
+
+        .card-list {
+        list-style: none;
+        padding: 0;
+        display: grid;
+        gap: 12px;
+        }
+
+        .card-list li {
+        background: #ffffff;
+        padding: 14px 20px;
+        border-radius: 12px;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+        transition: transform 0.2s;
+        cursor: pointer;
+        }
+
+        .card-list li:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
         body, html {
             margin: 0;
             padding: 0;
@@ -37,40 +74,144 @@
         }
 
         .left {
-            width: 60%;
+            width: 55%;
             background-color: #f0f0f0;
             overflow-y: auto; /* This side scrolls */
             padding: 20px;
         }
 
         .right {
-            width: 40%;
+            width: 45%;
             background-color: #ddd;
+            overflow-y: auto;
             padding: 20px;
         }
+
+        .price {
+            font-family: 'Roboto Mono', monospace;      /* Monospaced for clean numbers */
+            font-size: 1rem;                          /* Good default size */
+            font-weight: 600;                           /* Semi-bold for emphasis */
+            color: #2c7be5;                             /* Soft blue, easy on the eyes */
+            font-variant-numeric: tabular-nums;         /* Aligns digits nicely */
+            background-color: #f1f3f5;                  /* Light background for contrast */
+            padding: 2px 6px;                           /* Small padding */
+            border-radius: 4px;                         /* Rounded look */
+            display: inline-block;                      /* Allows background and padding */
+        }
+
+        .label {
+            font-family: 'Segoe UI', sans-serif;
+            font-size: 0.9rem;
+            color: #6c757d;        /* Muted gray */
+            margin-right: 6px;     /* Small space before number */
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        .navbar {
+            background-color: #ffffff;
+            padding: 12px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .navbar .logo {
+            font-family: 'Roboto Mono', monospace;
+            font-size: 1.3rem;
+            color: #2c7be5;
+            font-weight: 600;
+        }
+
+        .navbar nav a {
+            text-decoration: none;
+            color: #495057;
+            font-size: 0.95rem;
+            margin-left: 20px;
+            transition: color 0.3s;
+            font-family: 'Roboto Mono', monospace;
+            font-weight: bold;
+        }
+
+        .navbar nav a:hover {
+            color: #2c7be5;
+        }
+
     </style>
 </head>
 <body>
+
+    
+    <div class="navbar">
+        <div class="logo">MarketData</div>
+            <nav>
+                <a href="#">Home</a>
+                <a href="#">Prices</a>
+                <a href="#">Analytics</a>
+                <a href="#">Logout</a>
+            </nav>
+    </div>
+
     <div class="container">
+
         <div class="left">
-            <h1>Sales Office</h1>
-            <ul>
+            <h1 style="text-align:center; font-family: 'Roboto Mono', monospace;">Sales Office</h1>
+            <ul class="card-list">
                 {% for product in products %}
-                    <li>ID: {{ product.id }}
-                        <p style="color:brown; text-align:left; font-size:15px">{{product.kind}}</p>
-                        <p style="color:black; text-align:left; font-size:15px">Search Cost: {{product.searchCost}}<br>Quantity: {{product.amount}}</p>
-                        <p style="color:black; text-align:left; font-size:15px">Selling Price: {{ product.sell_price }}<br>Quality: {{ product.qualityBonus }}</p>
-                        <p style="color:black; text-align:left; font-size:15px">Cost: {{product.purchased_price}}<br>Total Terms: {{product.total_terms}}</p>
-                        <p style="color:black; text-align:left; font-size:15px">Revenue: {{product.revenue}}<br>Gross Profit: {{product.gross_profit}}</p> 
-                        <p style="color:black; text-align:left; font-size:15px">Net Income: {{product.net_income}}</p>
+                    <li class="left-li">ID: {{ product.id }}<br>{{product.kind}}
+                        <p>
+                            <span class="label">Search Cost: </span>
+                            <span class="price">{{product.searchCost}}</span><br>
+                            <span class="label">Quantity: </span>
+                            <span class="price">{{product.amount}}</span></p>           
+                        <p>
+                            <span class="label">Selling Price: </span>
+                            <span class="price">{{ product.sell_price }}</span><br>
+                            <span class="label">Quality: </span>
+                            <span class="price">{{ product.qualityBonus }}</span></p>
+                        <p>
+                            <span class="label">Cost: </span>
+                            <span class="price">{{product.purchased_price}}</span><br>
+                            <span class="label">Total Terms: </span>
+                            <span class="price">{{product.total_terms}}</span></p>
+                        <p>
+                            <span class="label">Revenue: </span>
+                            <span class="price">{{product.revenue}}</span><br>
+                            <span class="label">Gross Profit: </span>
+                            <span class="price">{{product.gross_profit}}</span></p> 
+                        <p>
+                            <span class="label">Net Income: </span>
+                            <span class="price">{{product.net_income}}</span></p>                      
                     </li>
                 {% endfor %}
             </ul>
         </div>
+
         <div class="right">
-            <p>Total Net Profit: {{total_net_income}}</p>
-            <p>Total Gross Profit: {{total_gross_income}}</p>
+            <ul class="card-list">
+                <li>
+                    <p><span class="label">Total Net Profit: </span>
+                        <span class="price">{{total_net_income}}</span><br>
+                        <span class="label">Total Gross Profit: </span>
+                        <span class="price">{{total_gross_income}}</span></p>
+                    <p><span class="label">SEP: </span>
+                        <span class="price">{{total_SEP}}</span><br>
+                        <span class="label">JUM: </span>
+                        <span class="price">{{total_JUM}}</span></p>
+                    <p><span class="label">SOR: </span>
+                        <span class="price">{{total_SOR}}</span><br>
+                        <span class="label">BFR: </span>
+                        <span class="price">{{total_BFR}}</span></p>
+                    <p><span class="label">LUX: </span>
+                        <span class="price">{{total_LUX}}</span><br>
+                        <span class="label">SAT: </span>
+                        <span class="price">{{total_SAT}}</span></p>
+                </li>
+            </ul>
         </div>
+
     </div>
 
 </body>
