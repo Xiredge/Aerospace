@@ -1,147 +1,12 @@
 <!DOCTYPE html>
+{% load static %}
+
 <html>
 <head>
     <meta charset="UTF-8">
     <title>SimCo Aerospace Industry</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    
-    <style>
-        ul {
-            list-style: none;
-            padding: 0;
-        }
-        li {
-            width: 40vw;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            padding: 12px;
-            margin-bottom: 10px;
-            background-color: #f0f0f0;
-            box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1);
-            font-family: roboto;
-            text-align: left;
-            font-weight: bold;
-            font-size: 15px;
-            display: flex;
-            justify-content: space-between;
-        }
-
-        .left-li {
-            width: 50vw;
-            border: 1px solid #ccc;
-            border-radius: 8px;
-            padding: 12px;
-            margin-bottom: 10px;
-            background-color: #f0f0f0;
-            box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.1);
-            font-family: roboto;
-            text-align: left;
-            font-weight: bold;
-            font-size: 15px;
-            display: flex;
-            justify-content: space-between;
-        }
-
-        .card-list {
-        list-style: none;
-        padding: 0;
-        display: grid;
-        gap: 12px;
-        }
-
-        .card-list li {
-        background: #ffffff;
-        padding: 14px 20px;
-        border-radius: 12px;
-        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-        transition: transform 0.2s;
-        cursor: pointer;
-        }
-
-        .card-list li:hover {
-        transform: translateY(-3px);
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-        }
-
-        body, html {
-            margin: 0;
-            padding: 0;
-            height: 100vh;
-            overflow: hidden;
-        }
-
-        .container {
-            display: flex;
-            height: 100%;
-        }
-
-        .left {
-            width: 55%;
-            background-color: #f0f0f0;
-            overflow-y: auto; /* This side scrolls */
-            padding: 20px;
-        }
-
-        .right {
-            width: 45%;
-            background-color: #ddd;
-            overflow-y: auto;
-            padding: 20px;
-        }
-
-        .price {
-            font-family: 'Roboto Mono', monospace;      /* Monospaced for clean numbers */
-            font-size: 1rem;                          /* Good default size */
-            font-weight: 600;                           /* Semi-bold for emphasis */
-            color: #2c7be5;                             /* Soft blue, easy on the eyes */
-            font-variant-numeric: tabular-nums;         /* Aligns digits nicely */
-            background-color: #f1f3f5;                  /* Light background for contrast */
-            padding: 2px 6px;                           /* Small padding */
-            border-radius: 4px;                         /* Rounded look */
-            display: inline-block;                      /* Allows background and padding */
-        }
-
-        .label {
-            font-family: 'Segoe UI', sans-serif;
-            font-size: 0.9rem;
-            color: #6c757d;        /* Muted gray */
-            margin-right: 6px;     /* Small space before number */
-            display: inline-block;
-            vertical-align: middle;
-        }
-
-        .navbar {
-            background-color: #ffffff;
-            padding: 12px 24px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-            border-bottom: 1px solid #e0e0e0;
-        }
-
-        .navbar .logo {
-            font-family: 'Roboto Mono', monospace;
-            font-size: 1.3rem;
-            color: #2c7be5;
-            font-weight: 600;
-        }
-
-        .navbar nav a {
-            text-decoration: none;
-            color: #495057;
-            font-size: 0.95rem;
-            margin-left: 20px;
-            transition: color 0.3s;
-            font-family: 'Roboto Mono', monospace;
-            font-weight: bold;
-        }
-
-        .navbar nav a:hover {
-            color: #2c7be5;
-        }
-
-    </style>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
     
@@ -193,7 +58,7 @@
         <div class="right">
             <h1 style="text-align:center; font-family: 'Roboto Mono', monospace;">Summary</h1>
             <ul class="card-list">
-                <li>
+                <li  onclick="window.location='https://www.onlinejobs.ph/jobseekers/job/Python-Programmer-1418068';">
                     <p><span class="label">Total Net Profit: </span>
                         <span class="price">{{total_net_income}}</span><br>
                         <span class="label">Total Gross Profit: </span>
