@@ -11,7 +11,7 @@ async def fetch_data(url):
         "amp_a5727e_simcompanies.com": "KcbP7TltBFrUk5VCkpIrsM...1iod124eq.1iod17347.0.0.0",
         "last-exchange-resource-0": "1",
         "last-exchange-resource-1": "1",
-        "sessionid": ".eJx1kdFP2zAQxv8Xv66N7uxzbOeNDsQQgkmAyspL5LgOLSlJFScd2cT_PjcUVbDtxZbuu_t9n8-_We5CW3ZN5WuWsfv1w3y3qK5eFpff5xfDTcpv4TQNV2cFfsNfDUBaNTP6iosHgavz2Wx3U9O9v6ZdOzT0dP2DTVhu-26V98G3-XoZkQSaUMuPSmFdNNzL240dfBuSvZacxGN2kD70r2xYxWbhuVJgyQktyRRalLJwVEqHYEpRgEdOUCrLyyI1yokSkciaJS-lLJZcR-ib3xiNayME0YS55nlr62EsEufGpHgs5q23m-dRgwkbI3UhZuHA5RT0FPgd6EzojFRCmkDAF4AM4Oi1sfVjbx99HIpLnrCNDV2k_mzaimWoJCEXRmECB8m6bt3UefAh7O_KD3_bmUxggopjerR7HxghrqmDd3233vl34OG9bzCaIkzR3MVhaTKiRChSWn7OHvqwjb_h91_1r_L_d8F15IkD7_UPBaG4jQ:1ui7mz:GIwX2bPKOKY-FdmbN4TwE1e9v6TSEBcHqMuHmR0d4Y4"}
+        "sessionid": ".eJxtkF9PwjAUxb9LX4Xl9h9t9yYaEyBqMBjC09KVDgjdhuuGDuN3twyQkPjSJvfc8zun_UaJ8VVWl1tboBhN5u8md8OKbsatHPv2S78t3p_d03o48pNmz3OzcFNM_OxjNHUj9zp-UXM9eZjl08PjoSZD1EOJbup10nhbJZtlQDKQDEt-q6TahMCjvHO6tZWPjlp0H47hWbrZX2u_DsvUEiFAM0MlZyqVNOOpYRk3GFRGU7CYMMiEJlk6UMLQDGPGtFqSjPN0SWSAnvK6akQqShnrIVPmO1203ZARotQAX4dJZbXLOw16qKtU-9CFAOF9UH0gM0xjIDElESgQgt8BxADXLKeLVaNXNpjCJ_eQ074O1M-y2qIYCz6QWOIBj-AsaVNvyiLx1vvjvbXtf3GMR1xyIvBf3MXQQUxZeGuaerO3F-D5vScY62PoYzULZq5ixiIqmJCX7j-_saui7w:1utQer:TIMY2XS_rXL8x9LScIhXnQB4wYmJqGQGGj7aDi8Gydk"}
 
     headers = {
         "User-Agent": "Mozilla/5.0"  # Mimic a real browser request

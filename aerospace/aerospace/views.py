@@ -5,15 +5,27 @@ from .get_json import fetch_data
 from .data_storage import *
 from .get_summary import get_summary
 from .get_data import get_data
-from .data_storage import *
 from .read_chat import read_chat
+from .nlp import *
+from openai import OpenAI
 
 def homepage(request):
     data = asyncio.run(fetch_data("https://www.simcompanies.com/api/v2/companies/buildings/38184904/sales-orders/"))
     data += asyncio.run(fetch_data("https://www.simcompanies.com/api/v2/companies/buildings/38321052/sales-orders/"))
     data += asyncio.run(fetch_data("https://www.simcompanies.com/api/v2/companies/buildings/38315475/sales-orders/"))
 
-    store_data(data, "json.json")
+    #Fetch chat and stores the json
+    #chat = asyncio.run(fetch_data("https://www.simcompanies.com/api/v2/chatroom/X/"))
+    #store_data(chat, "chat.json")
+    #______________________________
+
+    #Stores the aerospace office sales json
+    #store_data(data, "json.json")
+    #______________________________
+
+    prices = nlp(read_chat("chat.json"))
+    #prices = list(temp.values)
+
     info = read_data("json.json")
     sales_data = get_data(info)
     
@@ -55,4 +67,6 @@ def homepage(request):
         "total_BFR": total_BFR,
         "total_LUX": total_LUX,
         "total_SAT": total_SAT,
+        #"temp": temp,
+        "prices": prices,
         })

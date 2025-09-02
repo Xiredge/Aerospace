@@ -26,6 +26,16 @@
             <h1 style="text-align:center; font-family: 'Roboto Mono', monospace;">Sales Office</h1>
             <ul class="card-list">
                 {% for product in products %}
+                    {% with "25428075" as previousid %}
+                        {% if product.id == previousid %}
+                            <li class="left-li">
+                                <p>
+                                    <span class="label">Same ID! </span>     
+                                </p>
+                            </li>
+                        {% endif %}
+                    {% endwith %}
+
                     <li class="left-li">ID: {{ product.id }}<br>{{product.kind}}
                         <p>
                             <span class="label">Search Cost: </span>
@@ -76,6 +86,12 @@
                         <span class="label">SAT: </span>
                         <span class="price">{{total_SAT}}</span></p>
                 </li>
+
+                
+                    {% for key, value in prices.items %}
+                        <li>{{ key }} : {{ value }}</li>
+                    {% endfor %}
+                
             </ul>
 
             <h1 style="text-align:center; font-family: 'Roboto Mono', monospace;">Aerospace Product Prices</h1>
